@@ -11,6 +11,8 @@ import json
 
 from quaScrapy.items import AttractionsItem, EvaluationItem
 
+
+# mysql处理管道
 class MysqlPipeline(object):
     def __init__(self, host, database, user, password, port, sql_file_name=None):
         # 去重id，保存前先从库中查询出来，数据插入时也将插入这个set中
@@ -92,6 +94,7 @@ class MysqlPipeline(object):
         return item
 
 
+# 输出到json文件管道
 class JsonWritePipeline(object):
     def __init__(self):
         self.qua_file = open("qua_file.json", "w")
